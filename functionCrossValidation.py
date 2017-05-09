@@ -42,7 +42,7 @@ def cross_val_function(function,x,y,folds,*args,**kwargs):
 		train_y=y[mask]
 		test_x=x[~mask]
 		test_y=y[~mask]
-		score=function(1,2,*args,**kwargs)
+		score=function(train_x,train_y,test_x,test_y,*args,**kwargs)
 		cross_val_scores.append(score)
 		
 	return cross_val_scores
